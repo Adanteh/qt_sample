@@ -22,10 +22,13 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(keybind_editor)
         self.show()
 
-    def initKeybinds(self):
-        self.kb = KeySequenceModel(parent=self)
+    def initApp(self):
+        """Called on app init, both MyApp.instance() and ui are available"""
         sample_keybinds(self)
 
+    def initKeybinds(self):
+        self.kb = KeySequenceModel(parent=self)
+        
     def initMenu(self):
         """Sample menubar"""
         menubar = self.menuBar()
@@ -62,4 +65,3 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         self.saveSettings()
         return super().closeEvent(event)
-

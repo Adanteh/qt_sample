@@ -7,5 +7,7 @@ def start(arg=None):
     if arg is None:
         arg = sys.argv
     app = MyApp(arg)
-    _ = MainWindow(app)
+    app.ui = MainWindow(app)
+    app.ui.initApp()
+
     sys.exit(app.exec_())
